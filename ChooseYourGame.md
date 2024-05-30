@@ -31,6 +31,7 @@ Credits: [Steam.com](https://store.steampowered.com/app/1794680/Vampire_Survivor
 2. **Ennemis** : Il y a plusieurs types de démons qui
     - bougent à différentes vitesses
     - bougent selon des motifs différents
+    
 ou qui infligent des types de dégâts différents.
     - DoT (Damage Over Time) Dégâts au fil du temps.
     - AoE (Area of Effect) Dégâts à zone d'effet.
