@@ -96,8 +96,8 @@ Credits: [DeviantArt](https://www.deviantart.com/ah-noniamkerd/favourites/779484
     6. Menu de pause.
     7. Musique.
     8. Vague 2 : ennemi rapide.
-    9. Vague 3 : ennemi avec DoT (Damage over Time).
-    10. Vague 4 : Ennemi avec AoE (Area of Effect).
-    11. Item qui augmente la vitesse.
-    12. Item qui augmente la fréquence de tir.
+    9. Item qui augmente la vitesse.
+    10. Item qui augmente la fréquence de tir.
+    11. Vague 3 : ennemi avec DoT (Damage over Time).
+    12. Vague 4 : Ennemi avec AoE (Area of Effect).
 :::
