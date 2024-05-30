@@ -17,8 +17,11 @@
 
 format: jb-book
 root: README
-# parts:
-# - caption: Cours
+parts:
+- caption: Choose your game
+  - file: ChooseYourGame.md
+# - caption: Setup
+# - caption: Racing
 #   chapters:
 #     - file: Cours/cm1
 #     - file: Cours/cm2
@@ -26,16 +29,7 @@ root: README
 #     - file: Cours/cm4
 #     - file: Cours/cm5
 #     - file: Cours/cm6
-# - caption: Travaux Pratiques
-#   chapters: 
-#     - file: TPs/tp1
-#     - file: TPs/tp2
-#     - file: TPs/tp3
-#     - file: TPs/tp4
-#     - file: TPs/tp5
-#     - file: TPs/tp6
-#     - file: TPs/tp7
-# - caption: Soutien technique
-#   chapters:
-#     - file: TechSupport/internetProblem.md
-#     - file: TechSupport/vscodium.md
+# - caption: Side Scroller
+# - caption: Trivia
+# - caption: Platformer
+# - caption: Bullet Hell
