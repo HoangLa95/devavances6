@@ -1,0 +1,31 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: Développement Avancé
+  # description: 
+  authors: 
+    - name: Hoang La
+      affiliation: IUT d'Orsay, Université Paris-Saclay
+  # bibliography: 
+site:
+  template: book-theme
+  # title:
+  # logo:
+  #nav: []
+  #actions:
+  #  - title: Learn More
+  #    url: https://mystmd.org/guide
+  domains: []
+parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    - html_image
+    - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    - html_admonition
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+
