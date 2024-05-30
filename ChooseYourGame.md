@@ -14,12 +14,32 @@ Les personnages peuvent se déplacer dans toutes les directions.
 :alt: Pokémon Émeraude
 :align: center
 
-Credits: [https://www.deviantart.com/lazzxion-keyblade/art/Pokemon-Emerald-Shimmer-WIP-343764514](DeviantArt.com)
+Credits: [DeviantArt.com](https://www.deviantart.com/lazzxion-keyblade/art/Pokemon-Emerald-Shimmer-WIP-343764514)
 :::
 
 ### Jeux de tir
 
-Bullet Hell games : Vampire Survivor
+:::{figure} ./images/vampire-survivor.jpg
+:alt: Vampire Survivor
+:align: center
+
+Credits: [Steam.com](https://store.steampowered.com/app/1794680/Vampire_Survivors/)
+:::
+
+:::{important} Choix de design
+1. **Histoire** : Un héro qui doit tuer des démons.
+2. **Ennemis** : Il y a plusieurs types de démons qui
+    - bougent à différentes vitesses
+    - bougent selon des motifs différents
+ou qui infligent des types de dégâts différents.
+    - DoT (Damage Over Time) Dégâts au fil du temps.
+    - AoE (Area of Effect) Dégâts à zone d'effet.
+
+3. **Items** : Il y a des items qui rendent le héro plus fort.
+- 
+
+4. **Niveaux** :
+:::
 
 ### Jeux de rôle
 
