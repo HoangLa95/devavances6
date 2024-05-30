@@ -1,13 +1,20 @@
-# Choose Your Game
+# Choose Your 2D Game
 
 Vous pouvez choisir entre l'une des catégories suivantes pour votre jeu.
 
 ## Top-down Games
 
 :::{important} Jeux en vue du dessus
-:dropdown:
+:class: dropdown
 Un jeu vidéo en vue du dessus est un jeu dans lequel le gameplay est perçu depuis une caméra en vue à vol d'oiseau.
-Les per
+Les personnages peuvent se déplacer dans toutes les directions.
+:::
+
+:::{figure} ./images/pokemon.png
+:alt: Pokémon Émeraude
+:align: center
+
+Credits: [https://www.deviantart.com/lazzxion-keyblade/art/Pokemon-Emerald-Shimmer-WIP-343764514](DeviantArt.com)
 :::
 
 ### Jeux de tir
