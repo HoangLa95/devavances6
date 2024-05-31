@@ -10,8 +10,12 @@
 
 ## Contenu du cours
 
-Nous allons apprendre à utiliser Unity à travers le développement de quelques petits jeux.
+Nous allons développer des jeux sur Unity 2D.
 
 ## Évaluation
 
 Vous allez créer votre propre jeu 2D from scratch sur Unity en utilisant les outils vu en cours.
+
+Votre jeu (Assets, Packages, ProjectSettings) dois être déposé sur le [GitLab de l'IUT](git.iut-orsay.fr) et je (Hoang La) dois être invité en tant que Maintainer.
+
+Un pull de votre projet sera fait le matin du 24/06/2024.
