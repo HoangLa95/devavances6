@@ -51,9 +51,9 @@ Il faut rajouter `f` à la fin d'un `float` en Unity pour qu'il puisse le distin
 
 ## SerializeField
 
-- Créer des variables `float steerSpeed = 0.1f` et `float moveSpeed = 0.01f` et les remplacer les valeurs dans `transform.Rotate` et `transform.Translate` respectivement.
+5. Créer des variables `float steerSpeed = 0.1f` et `float moveSpeed = 0.01f` et les remplacer les valeurs dans `transform.Rotate` et `transform.Translate` respectivement.
 
-- Ajouter `[SerializeField]` devant les variables de la façon suivante:
+6. Ajouter `[SerializeField]` devant les variables de la façon suivante:
 ```{code} csharp
 [SerializeField] float steerSpeed = 0.1f;
 [SerializeField] float moveSpeed = 0.01f;
@@ -79,13 +79,13 @@ Nous voulons ajouter des inputs de l'utilisateur : le taxi doit pouvoir avancer,
 
 Vous pouvez vérifier (et changer) les inputs en allant dans **Edit** > **Project Settings** > **Input Manager**. Nous sommes interessés par la catégorie **Axes**.
 
-- Dans `Update()`, rajouter `float steerAmount = Input.GetAxis("Horizontal")` et remplacer `steerSpeed` dans `transform.Rotate` avec `steerAmount`. 
+7. Dans `Update()`, rajouter `float steerAmount = Input.GetAxis("Horizontal")` et remplacer `steerSpeed` dans `transform.Rotate` avec `steerAmount`. 
 
 Essayer de faire tourner la voiture en mode Play.
 
-- Vous pouvez changer la direction dans laquelle la voiture tourne en rajoutant `-` devant `steerAmount`. 
+8. Vous pouvez changer la direction dans laquelle la voiture tourne en rajoutant `-` devant `steerAmount`. 
 
-- Vous pouvez aussi changer la vitesse à laquelle elle tourne en multipliant par `steerSpeed`.
+9. Vous pouvez aussi changer la vitesse à laquelle elle tourne en multipliant par `steerSpeed`.
 
 :::{hint} Votre code devrait ressembler à ...
 :class: dropdown
@@ -95,33 +95,33 @@ transform.Rotate(0,0,-steerAmount);
 ```
 :::
 
-- Faire la même chose pour permettre au joueur d'avancer et de reculer avec les touches du clavier.
+10. Faire la même chose pour permettre au joueur d'avancer et de reculer avec les touches du clavier.
 
 ## Time.deltaTime
 
 Les ordinateurs avec des puissances différentes ne prennent pas le même temps pour exécuter un frame. 
 
-- Multiplier les changements de vitesse avec `Time.deltaTime` pour que notre jeu soit cohérent sur n'importe quel ordinateur.
+11. Multiplier les changements de vitesse avec `Time.deltaTime` pour que notre jeu soit cohérent sur n'importe quel ordinateur.
 
 Changer `steerSpeed` et `moveSpeed` dans `Inspector` pour avoir des vitesses raisonnables.
 
 ## Collider et Rigidbody
 
-- Ajouter une composante **Capsule Collider 2D** à votre capsule. 
+12. Ajouter une composante **Capsule Collider 2D** à votre capsule. 
 
 Vous pouvez observer une petite ligne verte qui délimite le capsule (décocher Sprite Renderer pour l'observer plus clairement).
 
-- Ajouter une composante **Rigidbody 2D** à votre capsule. 
+13. Ajouter une composante **Rigidbody 2D** à votre capsule. 
 
 Maintenant, il doit se comporter avec la physique par défaut de Unity.
 
-- Mettre **Gravity Scale** à 0 sinon le capsule va tomber quand vous faites Play.
+14. Mettre **Gravity Scale** à 0 sinon le capsule va tomber quand vous faites Play.
 
-- Créer un obstacle avec une composante Collider.
+15. Créer un obstacle avec une composante Collider.
 
 Observer l'interaction entre la voiture (le capsule) et l'obstacle.
 
-- Ajouter une composante Rigidbody à l'obstacle.
+16. Ajouter une composante Rigidbody à l'obstacle.
 
 Re-observer l'interaction entre les deux objets.
 
@@ -129,13 +129,13 @@ Re-observer l'interaction entre les deux objets.
 
 Nous allons rajouter un comportement "On Collision" à notre taxi.
 
-- Créer un nouveau script `Collision` et ajouter-le comme composante au capsule.
+17. Créer un nouveau script `Collision` et ajouter-le comme composante au capsule.
 
-- Dans `Collision`, ajouter la méthode `private void OnCollisionEnter2D(Collision2D other)`.
+18. Dans `Collision`, ajouter la méthode `private void OnCollisionEnter2D(Collision2D other)`.
 
 `OnCollisionEnter2D(Collision2D other)` est appelé par Unity quand notre objet 2D (qui possède le script comme composante) entre en collision avec un autre objet 2D (`other.GameObject`).
 
-- Ajouter un simple message dans `OnCollisionEnter2D` pour que le capsule affiche un message dans la console quand il se cogne contre un obstacle.
+19. Ajouter un simple message dans `OnCollisionEnter2D` pour que le capsule affiche un message dans la console quand il se cogne contre un obstacle.
 
 Observer les interactions entre la voiture et l'obstacle lors d'une collision.
 
@@ -143,11 +143,11 @@ Observer les interactions entre la voiture et l'obstacle lors d'une collision.
 
 Nous allons maintenant ajouter un "trigger".
 
-- Ajouter un carré avec un collider et cocher **Is Trigger**.
+20. Ajouter un carré avec un collider et cocher **Is Trigger**.
 
 Observer la différence entre un trigger et un collider normal.
 
-- Dans `Collision`, ajouter la méthode `OnTriggerEnter2D` avec un message.
+21. Dans `Collision`, ajouter la méthode `OnTriggerEnter2D` avec un message.
 
 Observer les interactions entre la voiture et le trigger.
 
@@ -155,7 +155,7 @@ Observer les interactions entre la voiture et le trigger.
 
 Quand nous parlons d'"assets" d'un projet, nous référons souvent aux images utilisés pour les objets dans le jeu.
 
-Suivre le tutoriel [Importing 2D Assets into Unity](https://learn.unity.com/tutorial/importing-2d-assets-into-unity-2019-3).
+22. Suivre le tutoriel [Importing 2D Assets into Unity](https://learn.unity.com/tutorial/importing-2d-assets-into-unity-2019-3).
 
 :::{danger} Avant d'importer des assets gratuits sur [assetstore.unity.com](https://assetstore.unity.com/)
 Il y a des assets qui viennent avec une scène par défaut souvent nommé SampleScene (similairement au scène par défaut de Unity).
@@ -163,9 +163,9 @@ Il y a des assets qui viennent avec une scène par défaut souvent nommé Sample
 **Renommer votre scène** avant d'importer des assets. Sinon, vous risquez d'écraser votre scène courante par une scène démo des assets importés.
 :::
 
-- Vous pouvez maintenant importer des assets gratuits depuis [assetstore.unity.com](https://assetstore.unity.com/) pour votre voiture, des obstacles, l'environnement,...
+23. Vous pouvez maintenant importer des assets gratuits depuis [assetstore.unity.com](https://assetstore.unity.com/) pour votre voiture, des obstacles, l'environnement,...
 
-- Vous pouvez aussi utiliser des assets gratuits que vous avez créé ou que vous pouvez trouver sur Internet.
+24. Vous pouvez aussi utiliser des assets gratuits que vous avez créé ou que vous pouvez trouver sur Internet.
 
 :::{seealso} Gestion des assets importés de Unity Store
 La gestion des assets depuis [assetstore.unity.com](https://assetstore.unity.com/) peut être faite à partir de **Window** > **Package Manager**.
@@ -173,7 +173,7 @@ La gestion des assets depuis [assetstore.unity.com](https://assetstore.unity.com
 
 ## Design d'un niveau
 
-- Créer un niveau avec des assets gratuits :
+25. Créer un niveau avec des assets gratuits :
     - Il faut avoir une voiture avec les scripts que nous avons écrit.
     - Il faut des obstacles qui ne bougent pas lors d'une collision (comme des maisons par exemple).
     - Il faut des obstacles qui peuvent être déplacés par la voiture lors d'une collision (comme des pierres par exemple).
@@ -182,13 +182,13 @@ La gestion des assets depuis [assetstore.unity.com](https://assetstore.unity.com
 
 Nous voulons une caméra qui suit notre taxi quand il se déplace.
 
-- Créer un script `FollowCamera` que nous allons ajouter en tant que composante à la caméra.
+26. Créer un script `FollowCamera` que nous allons ajouter en tant que composante à la caméra.
 
-- Ajouter une variable `[SerializeField] GameObject thingToFollow` dans `FollowCamera`.
+27. Ajouter une variable `[SerializeField] GameObject thingToFollow` dans `FollowCamera`.
 
 `[SerializeField]` ici nous permet de choisir l'objet que nous voulons dans `Inspector` au lieu d'avoir un objet fixé défini dans le script.
 
-- Changer la position de la caméra dans `Update` grâce à `transform.position = thingToFollow.transform.position`.
+28. Changer la position de la caméra dans `Update` grâce à `transform.position = thingToFollow.transform.position`.
 
 Quel est le problème de ce code ?
 
@@ -206,7 +206,7 @@ transform.position = thingToFollow.transform.position + new Vector3(0,0,-10);
 Vous pouvez bien sûr refactoriser ce code pour le rendre plus propre !
 :::
 
-- Améliorer le code. 
+29. Améliorer le code. 
 
 Observer les changements. Est-ce que vous voyez un problème ?
 
@@ -223,37 +223,37 @@ Pour rendre le mouvement de la caméra stable et cohérent, nous allons renommer
 Les mouvements de la voigure s'effectueront toujours d'abord.
 :::
 
-- Renommer `Update` dans `FollowCamera`.
+30. Renommer `Update` dans `FollowCamera`.
 
 ## Tags
 
-- Créer un cercle trigger que nous allons appeler `Client`.
+31. Créer un cercle trigger que nous allons appeler `Client`.
 
-- Créer un carré trigger que nous allons appeler `Destination`.
+32. Créer un carré trigger que nous allons appeler `Destination`.
 
 Nous pouvons ajouter des "tags" à nos GameObject dans Inspector. Il faut créer un nouveau tag quand ce n'est pas un tag par défaut proposé par Unity puis ajouter ce tag aux objets de notre choix.
 
-- Ajouter un tag à l'objet `Client` que nous allons aussi nommer `Client`. Faire la même chose pour `Destination`.
+33. Ajouter un tag à l'objet `Client` que nous allons aussi nommer `Client`. Faire la même chose pour `Destination`.
 
 Nous voulons deux comportements différents pour le taxi quand il passe par un trigger client ou quand il passe par un trigger destination.
 
-- Afficher des messages différents dans la console quand le taxi est "triggered" par `Client` ou par `Destination` grâce à `other.tag == "Client"` (ou `"Destination"`).
+34. Afficher des messages différents dans la console quand le taxi est "triggered" par `Client` ou par `Destination` grâce à `other.tag == "Client"` (ou `"Destination"`).
 
 Maintenant, nous voulons que le taxi prenne un client avant de le déposer à la destination.
 
-- Modifier le code pour que le message affiché à la destination soit triggered seulement quand le taxi a un client.
+35. Modifier le code pour que le message affiché à la destination soit triggered seulement quand le taxi a un client.
 
-- Ajouter un autre client au scène. Vous pouvez dupliquer un objet avec **Ctrl+D**.
+36. Ajouter un autre client au scène. Vous pouvez dupliquer un objet avec **Ctrl+D**.
 
 Nous voulons aussi que le taxi ne puisse pas prendre plusieurs clients en même temps.
 
-- Modifier le code pour que le message affiché par un client ne s'affiche que si le taxi n'a pas déjà un client à bord.
+37. Modifier le code pour que le message affiché par un client ne s'affiche que si le taxi n'a pas déjà un client à bord.
 
 ## Destroy
 
 Nous voulons qu'un client "disparaît" quand il est récupéré par le taxi.
 
-- Détruire l'objet client quand le taxi va le prendre grâce à `Destroy(other.gameObject,0.5f)`.
+38. Détruire l'objet client quand le taxi va le prendre grâce à `Destroy(other.gameObject,0.5f)`.
 
 `0.5f` correspond au "time delay" que l'objet qui sera détruit va prendre avant de disparaître. Dans ce contexte, il s'agit du temps que le client va mettre pour rentrer dans la voiture.
 
@@ -263,21 +263,21 @@ Nous pouvons renommer `0.5f` en `float destroyDelay` et le rendre `[SerializeFie
 
 Nous voulons que le taxi change de couleur quand il est occupé par un client.
 
-- Créer deux variables `[SerializeField]` de type `Color32` que nous allons initialiser à `new Color32(1,1,1,1)`. La première va correspondre à la couleur du taxi avec un client et la deuxième, sans client.
+39. Créer deux variables `[SerializeField]` de type `Color32` que nous allons initialiser à `new Color32(1,1,1,1)`. La première va correspondre à la couleur du taxi avec un client et la deuxième, sans client.
 
 C'est un système de couleur RGB où les trois premiers arguments correspondent à Red, Green et Blue respectivement et le dernier à Alpha pour l'opacité.
 
 Pour changer la couleur du taxi, nous allons changer plus précisément la couleur du sprite.
 
-- Créer une variable `SpriteRenderer spriteRenderer`.
+40. Créer une variable `SpriteRenderer spriteRenderer`.
 
-- Initialiser la variable dans `Start` grâce à `spriteRenderer = GetComponent<SpriteRenderer>()`.
+41. Initialiser la variable dans `Start` grâce à `spriteRenderer = GetComponent<SpriteRenderer>()`.
 
-- Nous pouvons maintenant modifier `spiteRenderer.color` au bon moment pour changer les couleurs de la voiture de la bonne façon.
+42. Nous pouvons maintenant modifier `spiteRenderer.color` au bon moment pour changer les couleurs de la voiture de la bonne façon.
 
 ## Exercice
 
-- Utiliser ce que vous avez appris pour implémenter des items qui permet au taxi d'aller plus vite quand il les récupère et de ralentir quand il se cogne contre un obstacle. 
+43. Utiliser ce que vous avez appris pour implémenter des items qui permet au taxi d'aller plus vite quand il les récupère et de ralentir quand il se cogne contre un obstacle. 
 
 Ce code devrait se trouver dans le script `Taxi` qui modifie la vitesse du taxi.
 
