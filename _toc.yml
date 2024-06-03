@@ -18,11 +18,11 @@
 format: jb-book
 root: README
 parts:
-- caption: 
+- caption: Choose Your 2D Game
   - file: ChooseYourGame.md
-- caption: 
+- caption: Pour Commencer
   - file: GettingStarted.md
-- caption:
+- caption: Taxi Driver
   - file: TaxiDriver.md
 # - caption: Setup
 # - caption: Racing
