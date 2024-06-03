@@ -18,10 +18,10 @@
 format: jb-book
 root: README
 parts:
-- caption: Choose your game
-  - file: ChooseYourGame.md
-- caption: Getting Started
-  - file: GettingStarted.md
+# - caption: Choose your game
+- file: ChooseYourGame.md
+# - caption: Getting Started
+- file: GettingStarted.md
 # - caption: Setup
 # - caption: Racing
 #   chapters:

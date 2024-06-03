@@ -5,8 +5,7 @@
 - **IDE** : Vous pouvez aussi utiliser votre IDE préféré ou [VSCode](https://learn.unity.com/tutorial/get-started-with-scripts?uv=2021.3).
 - **GitLab** : Il faut penser à créer un répertoire sur le [GitLab de l'IUT](git.iut-orsay.fr) pour votre jeu et de m'inviter.
 
-:::{seealso} .gitignore
-:class: dropdown
+:::{important} .gitignore
 Utiliser ce [`.gitignore`](https://github.com/github/gitignore/blob/main/Unity.gitignore) et y rajouter `.vscode/` si vous êtes sur VSCode ou tout dossier/fichier de configuration que vous utiliser.
 :::
 
