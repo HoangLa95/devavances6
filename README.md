@@ -16,6 +16,12 @@ Nous allons développer des jeux sur Unity 2D.
 
 Vous allez créer votre propre jeu 2D from scratch sur Unity en utilisant les outils vu en cours.
 
-Votre jeu (Assets, Packages, ProjectSettings) dois être déposé sur le [GitLab de l'IUT](git.iut-orsay.fr) et je (Hoang La) dois être invité en tant que Maintainer.
+:::{important} Requirements
+- Le jeu doit être développé pour PC.
+- Il doit en 2D (plus d'informations dans [Choose your game](#ChooseYourGame))
+- Votre jeu (Assets, Packages, ProjectSettings) dois être déposé sur le [GitLab de l'IUT](git.iut-orsay.fr) et je (Hoang La) dois être invité en tant que Maintainer.
+:::
 
+:::{warning} Deadline
 Un pull de votre projet sera fait le matin du 24/06/2024.
+:::
