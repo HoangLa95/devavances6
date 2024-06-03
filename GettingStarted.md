@@ -1,4 +1,4 @@
-# Pour commencer
+# Getting Started
 
 - **Installer Unity** : Vous pouvez installer Unity sur votre machine personnelle ou utiliser la version des machines l'IUT.
 - **Créer un compte Unity**.

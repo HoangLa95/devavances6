@@ -37,9 +37,9 @@ Suivre les tutoriels [Getting started with scripts](https://learn.unity.com/tuto
 
 ## transform.Rotate()
 
-- Créer un capsule qui va représenter le taxi.
-- Ajouter un script `Taxi` au capsule.
-- Faire tourner le taxi à chaque frame de 0.1 selon l'axe z  avec `transform.Rotate(0,0,0.1f)`.
+1. Créer un capsule qui va représenter le taxi.
+2. Ajouter un script `Taxi` au capsule.
+3. Faire tourner le taxi à chaque frame de 0.1 selon l'axe z  avec `transform.Rotate(0,0,0.1f)`.
 
 :::{warning} `float` en Unity
 Il faut rajouter `f` à la fin d'un `float` en Unity pour qu'il puisse le distinguer d'un `double`.
@@ -47,7 +47,7 @@ Il faut rajouter `f` à la fin d'un `float` en Unity pour qu'il puisse le distin
 
 ## transform.Translate()
 
-- Faire avancer le capsule (selon l'axe y) de 0.01 avec `transform.Translate(0,0.01f,0)` à chaque frame.
+4. Faire avancer le capsule (selon l'axe y) de 0.01 avec `transform.Translate(0,0.01f,0)` à chaque frame.
 
 ## SerializeField
 
@@ -70,7 +70,7 @@ Les valeurs adoptées par les GameObject sont les valeurs dans l'éditeur Unity.
 :::{danger} Modification de la scène en mode Play
 Les modifications apportées à la scène quand vous êtes en mode Play disparaissent quand vous sortez du mode Play !
 
-Une façon simple de se souvenir que l'on est en mode Play est de changer la couleur de l'éditeur en mode Play avec **Edit** > **Preferences** > **Colors** > **Playmode tint**.
+Une façon simple de se souvenir que nous sommes en mode Play est de changer la couleur de l'éditeur en mode Play avec **Edit** > **Preferences** > **Colors** > **Playmode tint**.
 :::
 
 ## Input.GetAxis()
@@ -81,9 +81,11 @@ Vous pouvez vérifier (et changer) les inputs en allant dans **Edit** > **Projec
 
 - Dans `Update()`, rajouter `float steerAmount = Input.GetAxis("Horizontal")` et remplacer `steerSpeed` dans `transform.Rotate` avec `steerAmount`. 
 
-Essayer de faire tourner la voiture en mode Play.   
-    - Vous pouvez changer la direction dans laquelle la voiture tourne en rajoutant `-` devant `steerAmount`. 
-    - Vous pouvez aussi changer la vitesse à laquelle elle tourne en multipliant par `steerSpeed`.
+Essayer de faire tourner la voiture en mode Play.
+
+- Vous pouvez changer la direction dans laquelle la voiture tourne en rajoutant `-` devant `steerAmount`. 
+
+- Vous pouvez aussi changer la vitesse à laquelle elle tourne en multipliant par `steerSpeed`.
 
 :::{hint} Votre code devrait ressembler à ...
 :class: dropdown
@@ -184,7 +186,7 @@ Nous voulons une caméra qui suit notre taxi quand il se déplace.
 
 - Ajouter une variable `[SerializeField] GameObject thingToFollow` dans `FollowCamera`.
 
-`[SerializeField]` ici nous permet de choisir l'objet que l'on veut dans `Inspector` au lieu d'avoir un objet fixé défini dans le script.
+`[SerializeField]` ici nous permet de choisir l'objet que nous voulons dans `Inspector` au lieu d'avoir un objet fixé défini dans le script.
 
 - Changer la position de la caméra dans `Update` grâce à `transform.position = thingToFollow.transform.position`.
 
@@ -192,7 +194,7 @@ Quel est le problème de ce code ?
 
 :::{hint} Indice
 :class: dropdown
-Le 2D est trompeur car il nous fait oublier que l'on travaille en fait en 3D. 
+Le 2D est trompeur car il nous fait oublier que nous travaillons en fait en 3D. 
 
 En effet, nous ne voulons pas que la caméra soit exactement au même endroit que la voiture mais plutôt en vue Top-Down, c'est-à-dire que la caméra doit être plus "haut" et regarde la voiture en vol d'oiseau.
 

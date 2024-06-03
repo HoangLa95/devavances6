@@ -20,7 +20,7 @@ root: README
 parts:
 - caption: Choose Your 2D Game
   - file: ChooseYourGame.md
-- caption: Pour Commencer
+- caption: Getting Started
   - file: GettingStarted.md
 - caption: Taxi Driver
   - file: TaxiDriver.md
