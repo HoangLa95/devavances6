@@ -22,6 +22,7 @@ parts:
 - file: ChooseYourGame.md
 # - caption: Getting Started
 - file: GettingStarted.md
+- file: TaxiDriver.md
 # - caption: Setup
 # - caption: Racing
 #   chapters:
