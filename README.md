@@ -1,6 +1,6 @@
 # Développement Avancé
 
-## Objectif du cours
+## Objectifs du cours
 
 - Apprendre à programmer en C#.
 - Maîtriser le moteur de jeu Unity.
@@ -17,10 +17,11 @@ Nous allons développer des jeux sur Unity 2D.
 Vous allez créer votre propre jeu 2D from scratch sur Unity en utilisant les outils vu en cours.
 
 :::{important} Requirements
-- Le jeu doit être développé pour PC.
+- Le jeu doit être développé avec Unity2D pour PC.
 - Il doit en 2D (plus d'informations dans [Choose Your 2D Game](./ChooseYourGame.md)).
 - Il doit contenir de la musique.
 - Votre jeu (Assets, Packages, ProjectSettings) dois être déposé sur le [GitLab de l'IUT](git.iut-orsay.fr) et je (Hoang La) dois être invité en tant que Maintainer.
+- Dans le répertoire, vous devez aussi inclure votre [document de design](./ChooseYourGame.md/#game-design).
 :::
 
 :::{warning} Deadline
