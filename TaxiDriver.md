@@ -147,7 +147,7 @@ Nous allons maintenant ajouter un "trigger".
 
 Observer la différence entre un trigger et un collider normal.
 
-21. Dans `Collision`, ajouter la méthode `OnTriggerEnter2D` avec un message.
+21. Dans `Collision`, ajouter la méthode `private void OnTriggerEnter2D(Collider2D other)` avec un message.
 
 Observer les interactions entre la voiture et le trigger.
 
