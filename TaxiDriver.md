@@ -212,7 +212,7 @@ Observer les changements. Est-ce que vous voyez un problème ?
 
 :::{hint} Indice
 :class: dropdown
-Vu que nous n'avons pas défini d'ordre sur l'exécution des `Update`, parfois la voiture se déplace avant la caméra, pardois elle peut se déplacer après.
+Vu que nous n'avons pas défini d'ordre sur l'exécution des `Update`, parfois la voiture se déplace avant la caméra, parfois elle peut se déplacer après.
 
 La caméra n'est donc pas très stable car elle doit "se battre" avec les mouvements de la voiture.
 
@@ -220,7 +220,7 @@ Vous pouvez consulter cette documentation sur l'[ordre d'exécution des évènem
 
 Pour rendre le mouvement de la caméra stable et cohérent, nous allons renommer `Update` dans `FollowCamera` à `LateUpdate`.
 
-Les mouvements de la voigure s'effectueront toujours d'abord.
+Les mouvements de la voiture s'effectueront toujours d'abord.
 :::
 
 30. Renommer `Update` dans `FollowCamera`.
