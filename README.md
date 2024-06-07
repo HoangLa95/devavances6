@@ -18,7 +18,7 @@ Vous allez créer votre propre jeu 2D from scratch sur Unity en utilisant les ou
 
 :::{important} Requirements
 - Le jeu doit être développé avec Unity2D pour PC.
-- Il doit en 2D (plus d'informations dans [Choose Your 2D Game](./ChooseYourGame.md)).
+- Il doit être en 2D (plus d'informations dans [Choose Your 2D Game](./ChooseYourGame.md)).
 - Il doit contenir de la musique.
 - Votre jeu (Assets, Packages, ProjectSettings) dois être déposé sur le [GitLab de l'IUT](git.iut-orsay.fr) et je (Hoang La) dois être invité en tant que Maintainer.
 - Dans le répertoire, vous devez aussi inclure votre [document de design](./ChooseYourGame.md/#game-design).
