@@ -27,3 +27,9 @@ Vous allez créer votre propre jeu 2D from scratch sur Unity en utilisant les ou
 :::{warning} Deadline
 Un pull de votre projet sera fait le matin du 24/06/2024.
 :::
+
+:::{important} Barème
+- 2 points pour le document de design.
+- 10 points si vous avez fait le mininum pour avoir un produit viable.
+- 8 points pour fonctionnalités bonus.
+:::
