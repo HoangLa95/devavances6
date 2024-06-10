@@ -1,4 +1,4 @@
-# 1.Taxi Driver
+# Taxi Driver
 
 *Credits: [GameDev.tv](https://www.gamedev.tv/)*
 

@@ -1,4 +1,4 @@
-# 2.Mountain Racer
+# Mountain Racer
 
 *Credits: [GameDev.tv](https://www.gamedev.tv/)*
 
