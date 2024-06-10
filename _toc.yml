@@ -22,7 +22,7 @@ parts:
   - file: ChooseYourGame.md
 - caption: Getting Started
   - file: GettingStarted.md
-- caption: Taxi Driver
+- caption: 1.Taxi Driver
   - file: TaxiDriver.md
 - caption: Mountain Racer
-  - file: MoutainRacer.md
+  - file: 2.MoutainRacer.md
