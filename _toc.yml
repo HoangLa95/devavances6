@@ -19,10 +19,12 @@ format: jb-book
 root: README
 parts:
 - caption: Choose Your 2D Game
-  - file: ChooseYourGame.md
+  - file: BeforeGaming1_ChooseYourGame.md
 - caption: Getting Started
-  - file: GettingStarted.md
+  - file: BeforeGaming2_GettingStarted.md
 - caption: Taxi Driver
   - file: Game1_TaxiDriver.md
 - caption: Mountain Racer
   - file: Game2_MoutainRacer.md
+- caption: All in One
+  - file: Game3_AllinOne.md
