@@ -233,3 +233,44 @@ Pour éviter que **Player** se colle contre les murs, nous allons lui donner une
 
 42. Changer **Friction** et **Bounciness** à 0 dans **Player Material** et mettre **Player Material** dans les colliders et rigidbody de **Player**.
 
+## Climb
+
+43. Créer **Climbing Tilemap** avec des échelles et y mettre les bonnes layers (User Layer et Sorting Layer).
+
+:::{seealso} Custom Physics Shape
+:class: dropdown
+Vous pouvez changer la forme du Tilemap Collider de vos échelles en allant dans **Sprite Editor** et en choisissant **Custom Physics Shape** (dans le dropdown menu en haut à gauche). 
+:::
+
+44. Ajouter les **Tilemap Collider 2D** et **Composite Collider 2D** à **Climbing Tilemap**. Il ne faut pas oublier de cocher **Static** et **Is Trigger** dans **Rigidbody 2D** et **Used by Composite** dans **Tilemap Collider 2D**.
+
+Ici, **Is Trigger** permet au joueur de passer devant l'échelle sans se cogner contre.
+
+Pour pouvoir monter à une échelle, il faut vérifier si le corps de **Player** touche la User Layer **Climbing**.
+
+45. Comme avant, récupérer `CapsuleCollider2D myBodyCollider` dans **PlayerMovement** et implémenter `bool isTouchingALadder()`.
+
+46. Dans `Update`, ajouter la méthode `ClimbLadder` que nous allons implémenter de la façon suivante.
+
+```{code} csharp
+void ClimbLadder(){
+    if(isTouchingALadder()) {
+        myRigidbody2D.gravityScale = 0f;
+
+        Vector2 climbVelocity = new Vector2 (myRigidbody2D.velocity.x, moveInput.y * climbSpeed);
+        myRigidbody2D.velocity = climbVelocity;
+
+        bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody2D.velocity.y) > Mathf.Epsilon;
+        myAnimator.SetBool("isClimbing", playerHasVerticalSpeed || !isTouchingTheGround());
+    }
+    else{
+        myRigidbody2D.gravityScale = gravityScaleAtStart;
+        myAnimator.SetBool("isClimbing", false);
+    }
+}
+```
+- D'abord, il ne faut pas que **Player** tombe quand il est sur une échelle. Donc, il faut mettre `myRigidbody2D.gravityScale` à 0.
+- Comme pour les movements horizontaux, nous pouvons définir la vitesse verticale `climbVelocity` qui va dépendre de `moveInput.y` et `[SerializeField] float climbSpeed`.
+- Pour déclencher la bonne animation, nous allons vérifier si `playerHasVerticalSpeed` de la même façon que `playerHasHorizontalSpeed`.
+- `isClimbing` est à `true` quand `playerHasVerticalSpeed` ou quand il est sur une échelle et ses pieds ne sont plus au sol (`!isTouchingTheGround`).
+- Quand **Player** ne touche plus l'échelle, il faut remettre `myRigidbody2D.gravityScale`  à la gravité de départ `float gravityScaleAtStart` dont la valeur est affecté dans `Start` avec `gravityScaleAtStart = myRigidbody2D.gravityScale`.
