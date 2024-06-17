@@ -199,3 +199,37 @@ Nous voulons que les bonnes animations soit utilisées quand **Player** fait les
 
 ## Jump
 
+Pour pouvoir sauter, il faut que les pieds du personnage touchent le sol. 
+
+35. Créer un **Box Collider 2D** au niveau des pieds du personnage. Faire attention à ce que la largeur du rectangle ne dépasse pas la largeur du Capsule, sinon le personnage pourrait sauter quand il est contre un mur.
+
+36. Ajouter la **User Layer Ground** à **Platforms Tilemap**.
+
+37. Récupérer la composante `BoxCollider2D` dans **Player Movement** et nommer-la `myFeetCollider`.
+
+38. Définir la fonction `isTouchingTheGround` de la façon suivante.
+
+```{code} csharp
+bool isTouchingTheGround(){
+    return myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+}
+```
+
+39. Similairement à `OnMove`, dans `On Jump`. nous pouvons définir la vitesse verticale (`[SerializeField] float jumpSpeed`) de **Player** quand la touche correspondante est appuyée.
+
+```{code} csharp
+void OnJump(InputValue value){
+    if(isTouchingTheGround() && value.isPressed) {
+        myRigidbody2D.velocity += new Vector2 (0f, jumpSpeed);
+    }
+}
+```
+
+40. Changer **Gravity Scale** dans **Rigidbody 2D** de **Player** et `jumpSpeed` pour que le joueur puisse sauter le bon nombre (à vous de choisir) de tiles.
+
+Pour éviter que **Player** se colle contre les murs, nous allons lui donner une **Physics Material 2D** sans friction.
+
+41. Dans le dossier **Materials**, créer **2D** > **Physics Material 2D** et nommer-la **Player Material**.
+
+42. Changer **Friction** et **Bounciness** à 0 dans **Player Material** et mettre **Player Material** dans les colliders et rigidbody de **Player**.
+
