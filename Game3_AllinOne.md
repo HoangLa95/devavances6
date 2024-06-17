@@ -63,7 +63,7 @@ Par exemple :
 Vous pouvez décider les interactions entre les layers qui correspondent à ce qui est attendu dans la suite du jeu.
 :::
 
-6. Créer **Background Tilemap** avec **Background** comme **User Layer** et **Sorting Layer**. Si vous voulez faire un effet parallaxe alors au lieu de créer une tilemap pour le background, vous pouvez suivre [ce tutoriel](https://www.youtube.com/watch?v=zit45k6CUMk) plus tard (une fois que la [caméra dynamique cinemachine](#state-driven-cameras) soit établie).
+6. Créer **Background Tilemap** avec **Background** comme **User Layer** et **Sorting Layer**. Si vous voulez faire un effet parallaxe alors au lieu de créer une tilemap pour le background, vous pouvez suivre [ce tutoriel](https://www.youtube.com/watch?v=zit45k6CUMk) (*Credits : Dani*) plus tard (une fois que la [caméra dynamique cinemachine](#state-driven-cameras) soit établie).
 
 ## Animator Controller
 
