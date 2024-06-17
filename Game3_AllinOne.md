@@ -312,3 +312,9 @@ Ces caméras vont dépendre de l'état de **Player**. Par exemple, quand **Playe
 57. Dans la liste de **State**, ajouter les états **Idling**, **Running**, **Climbing** et les caméras correspondantes.
 
 58. Le temps de transition entre deux caméras est en secondes dans **Default Blend**. Vous pouvez créer des **Custom Blends** pour personnaliser les temps de transitions. Par exemple, **Run Camera** vers **Idle Camera** peut prendre plus de temps alors que **Idle Camera** vers **Run Camera** peut être plus rapide.
+
+## Physics Material 2D
+
+## Start Menu et Pause Menu
+
+Faire un **Start Menu** et un **Pause Menu** grâce à ces tutoriels : [START MENU in Unity](https://www.youtube.com/watch?v=zc8ac_qUXQY), [PAUSE MENU in Unity](https://www.youtube.com/watch?v=JivuXdrIHK0) (*Credits : Brackeys*). 
