@@ -63,7 +63,7 @@ Par exemple :
 Vous pouvez décider les interactions entre les layers qui correspondent à ce qui est attendu dans la suite du jeu.
 :::
 
-6. Créer **Background Tilemap** avec **Background** comme **User Layer** et **Sorting Layer**. Si vous voulez faire un effet parallaxe alors au lieu de créer une tilemap pour le background, vous pouvez suivre [ce tutoriel](https://www.youtube.com/watch?v=zit45k6CUMk) plus tard (une fois que la [caméra dynamique cinemachine](#state-driven-camera) soit établie).
+6. Créer **Background Tilemap** avec **Background** comme **User Layer** et **Sorting Layer**. Si vous voulez faire un effet parallaxe alors au lieu de créer une tilemap pour le background, vous pouvez suivre [ce tutoriel](https://www.youtube.com/watch?v=zit45k6CUMk) plus tard (une fois que la [caméra dynamique cinemachine](#state-driven-cameras) soit établie).
 
 ## Animator Controller
 
@@ -274,3 +274,41 @@ void ClimbLadder(){
 - Pour déclencher la bonne animation, nous allons vérifier si `playerHasVerticalSpeed` de la même façon que `playerHasHorizontalSpeed`.
 - `isClimbing` est à `true` quand `playerHasVerticalSpeed` ou quand il est sur une échelle et ses pieds ne sont plus au sol (`!isTouchingTheGround`).
 - Quand **Player** ne touche plus l'échelle, il faut remettre `myRigidbody2D.gravityScale`  à la gravité de départ `float gravityScaleAtStart` dont la valeur est affecté dans `Start` avec `gravityScaleAtStart = myRigidbody2D.gravityScale`.
+
+## State-Driven Cameras
+
+47. Commencer par créer une **Follow Camera** avec **Cinemachine** [comme dans le jeu précédent](./Game2_MountainRacer.md/#cinemachine-followcamera).
+
+48. Pour avoir des mouvements de caméra plus smooth, vous pouvez jouer avec les paramètres comme **Dead Zone Width**, **Dead Zone Height**, **X Damping** et **Y Damping**.
+
+:::{seealso} Camera Settings
+**Dead Zone Width** et **Dead Zone Height** définissent une zone rectangulaire dans laquelle le joueur peut bouger sans que la caméra bouge.
+
+**X Damping** et **Y Damping** rendent le suivi de la caméra plus lente pour éviter des mouvements erratiques.
+:::
+
+Vu que la caméra est centrée sur **Player**, elle peut "sortir du monde" que l'on a défini et le joueur pourrait voir du vide autour. Pour éviter cela, nous allons définir un **Confiner**.
+
+49. Dans **Background Tilemap** (ou **Background**), ajouter une composante **Polygon Collider 2D** et définir la zone que la caméra peut voir. Faire attention à ce que **Background Tilemap** soit sur les bonnes layers et que cette (user) layer n'interagit pas avec les autres.
+
+50. Dans la **Follow Camera**, ajouter l'extension **Cinemachine Confiner 2D** et choisir comme **Bounding Shape 2D** **Background Tilemap** (il va choisir automatiquement le Polygon Collider de Background Tilemap).
+
+Maintenant, nous allons créer plusieurs types de caméras et des transitions entre les différents caméras pour donner un aspect plus dynamique à notre jeu.
+
+Ces caméras vont dépendre de l'état de **Player**. Par exemple, quand **Player** est en train de courir, nous avons envie de dézoomer la caméra pour voir ce qui est devant lui. Quand il ne fait rien, nous voulons peut-être zoomer sur lui pour donner un peu de personnalité. Quand il monte à une échelle, nous voulons peut-être aussi dézoomer car il "voit" plus quand il est en hauteur.
+
+51. Dans **Hierarchy**, créer **Cinemachine** > **State-Driven Camera**.
+
+52. Mettre toutes les caméras sous un même objet **Cameras**.
+
+53. Renommer **Follow Camera** à **Run Camera** et rendre-la enfant de **State Driven Camera**.
+
+54. Dupliquer **Run Camera** deux fois et les renommer **Idle Camera** et **Climb Camera**.
+
+55. Jouer avec le zoom de ces caméras (**Lens Ortho Size**) et d'autres paramètres (si vous voulez) pour implémenter les effets mentionnés précédemment.
+
+56. Dans **State Driven Camera**, choisir **Player** comme **Animated Target**.
+
+57. Dans la liste de **State**, ajouter les états **Idling**, **Running**, **Climbing** et les caméras correspondantes.
+
+58. Le temps de transition entre deux caméras est en secondes dans **Default Blend**. Vous pouvez créer des **Custom Blends** pour personnaliser les temps de transitions. Par exemple, **Run Camera** vers **Idle Camera** peut prendre plus de temps alors que **Idle Camera** vers **Run Camera** peut être plus rapide.
