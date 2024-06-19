@@ -52,7 +52,7 @@ Penser à organiser votre dossier **Asset** en créant des dossiers différents 
 :::{important} Sorting Layer vs User Layer
 **Sorting Layer** sert à l'affichages des sprites : plus le numéro d'un layer est grand, plus l'objet sur le layer serait "devant". Par exemple, **Sorting Layer 1** sera **Background** et **Sorting Layer 2** sera **Platforms**.
 
-**User Layer** va être utilisé pour gérer la logique des interactions (collisions) des objets dans le jeu. Par exemple, pour ce jeu, nous allons créer les layers suivant: **Ground**, **Climbing**, **Player**, **Background**, **Bouncing**, **Enemies**, **Bullet**, **Interactables**. L'ordre ici n'a pas d'importance.
+**User Layer** va être utilisé pour gérer la logique des interactions (collisions) des objets dans le jeu. Par exemple, pour ce jeu, nous allons créer les layers suivant: **Ground**, **Climbing**, **Player**, **Background**, **Bouncing**, **Enemies**, **Traps**, **Bullet**, **Interactables**. L'ordre ici n'a pas d'importance.
 
 Une fois que les User Layers sont créées, nous pouvons aller dans **Edit** > **Project Settings** > **Physics 2D** > **Layer Collision Matrix** et décider les interactions entre les objets des différentes layers.
 
@@ -325,7 +325,7 @@ Précédemment, nous avons utilisé **Physics Material 2D** pour enlever la fric
 
 ## Enemy
 
-62. Utiliser ce que vous avez appris pour créer un ennemi avec une animation simple.
+62. Utiliser ce que vous avez appris pour créer **Enemy** avec une animation simple et les bonnes layers.
 
 63. Dans **Scripts**, créer **EnemyMovement** dans lequel nous allons définir `[SerializeField] float moveSpeed` et récupérer la composante `Rigidbody2D myRigidbody2D`.
 
@@ -339,6 +339,66 @@ Il faut maintenant permettre à **Enemy** de pouvoir faire des aller-retours. Po
 
 67. Ajouter aussi une fonction `FlipEnemyFacing` qui change `localScale` de **Enemy** pour que le sprite tourne aussi dans la bonne direction.
 
+## Death
+
+Nous voulons permettre à **Player** de "mourir" quand il touche **Enemy**.
+
+68. Ajouter `bool isAlive` dans **PlayerMovement** et des conditions dans `Update`, `OnMove` et `OnJump` pour que le code s'exécute seulement si **Player** `isAlive`.
+
+69. Faire une animation **Death** dans l'Animator et une transition de **Any State** vers **Death** utilisant un paramètre **Trigger** nommé **Dying**.
+
+70. Dans `Update`, ajouter une fonction `Die` dans laquelle nous allons ajouter comme condition que `myBodyCollider` ou `myFeetCollider` a touché la layer `Enemies` (vous pouvez aussi considérer que si **Player** saute sur **Enemy** alors il ne meurt pas auquel cas il suffit d'enlever `myFeetCollider` de la condition). Si cette condition est vérifiée, alors `isAlive` devient `false` et `myAnimator.SetTrigger("Dying")` pour commencer l'animation `Death` de **Player**.
+
+## Traps
+
+71. Utiliser ce que vous avez appris pour créer des pics dans le niveau qui tue le joueur quand il les touche.
+
+## Bullets
+
+72. Choisir un asset pour **Bullet** et le rendre Prefab.
+
+73. Choisir une touche pour **Fire** dans **Player Input**.
+
+73. Ajouter un GameObject **Gun** comme enfant de **Player** (avec potentiellement un Sprite si vous voulez; **Player** peut aussi tirer des boules de feu qui apparaissent devant lui).
+
+74. Récupérer `[SerializeField] GameObject bullet` et `[SerializeField] Transform gun` dans **Player Movement**.
+
+75. Ajouter la fonction `void OnFire(InputValue value)` avec le code suivant.
+
+```{code} csharp
+if(isAlive){
+    bullet.transform.localScale = new Vector3(Mathf.Sign(transform.localScale.x)*Mathf.Abs(bullet.transform.localScale.x), bullet.transform.localScale.y,bullet.transform.localScale.z);
+    Instantiate(bullet, gun.position, gun.rotation);
+}
+```
+- `OnFire` s'exécute seulement is **Player** `isAlive`.
+- Pour que `bullet` soit orienté dans la bonne direction, nous allons changer son `localScale.x` pour qu'il ait le même signe que `localScale.x` de **Player** et garder les autres coordonnées.
+- On crée `bullet` dans la scène avec `Instantiate` et sa position et sa rotation est défini par la position et la rotation de `gun`. 
+
+76. À **Bullet**, on veut ajouter un script **Bullet** dans lequel on a `[SerializeField] float bulletSpeed`, `Rigidbody2D myRigidbody2D` et `Transform myTransform`.
+
+77. Dans `Update`, nous voulons que **Bullet** aille en ligne droite dans la bonne direction et avec la bonne vitesse avec `myRigidbody2D.velocity = new Vector2 (Mathf.Sign(myTransform.localScale.x) * bulletSpeed,0f)`.
+
+Quand **Bullet** touche **Enemy** ou **Ground**, on veut que **Bullet** disparaisse (ainsi que **Enemy** dans le premier cas).
+
+78. Ajouter un Trigger à **Bullet** et dans son script, ajouter la fonction `OnTriggerEnter2D(Collider2D other)`.
+
+79. Ajouter un tag à **Enemy**.
+
+80. Maintenant, détruire les GameObjects **Bullet** (et **Enemy**) dans `OnTriggerEnter2D` grâce au code suivant.
+
+```{code} csharp
+if(other.tag == "Enemy"){
+    Destroy(other.gameObject);
+}
+Destroy(gameObject);
+```
+
+## Level Exit
+
+## Game Session Controller
+
+## Scene Persist
 
 ## Start Menu et Pause Menu
 
