@@ -315,6 +315,31 @@ Ces caméras vont dépendre de l'état de **Player**. Par exemple, quand **Playe
 
 ## Physics Material 2D
 
+Précédemment, nous avons utilisé **Physics Material 2D** pour enlever la friction de **Player**. Maintenant, nous pouvons aussi créer des trampolines dans notre niveau.
+
+59. Choisir un asset pour votre trampoline et créer une **Bouncing Tilemap** avec les bonnes layers et colliders.
+
+60. Créer un **Physics Material 2D** dans votre dossier **Materials** et mettre `1.5` en **Bounciness** pour commencer.
+
+61. Ajouter-le à **Rigidbody 2D** de **Bouncing Tilemap** et adjuster les valeurs jusqu'à avoir un rebond qui vous convient.
+
+## Enemy
+
+62. Utiliser ce que vous avez appris pour créer un ennemi avec une animation simple.
+
+63. Dans **Scripts**, créer **EnemyMovement** dans lequel nous allons définir `[SerializeField] float moveSpeed` et récupérer la composante `Rigidbody2D myRigidbody2D`.
+
+64. Dans `Update`, modifier la vitesse horizontale dans `myRigidbody2D` avec `moveSpeed`.
+
+Il faut maintenant permettre à **Enemy** de pouvoir faire des aller-retours. Pour cela, nous allons ajouter un "champs de vision" à **Enemy** qui sera un Box Trigger qui, dès qu'il ne "voit" plus **Ground**, il va se retourner.
+
+65. Créer un **Box Collider 2D** avec **Is Trigger** devant **Enemy** qui descend un peu dans le sol.
+
+66. Ajouter `OnTriggerExit2D(Collider2D other)` dans **EnemyMovement** qui change `moveSpeed` en `-moveSpeed` pour que **Enemy** se déplace dans l'autre direction.
+
+67. Ajouter aussi une fonction `FlipEnemyFacing` qui change `localScale` de **Enemy** pour que le sprite tourne aussi dans la bonne direction.
+
+
 ## Start Menu et Pause Menu
 
 Faire un **Start Menu** et un **Pause Menu** grâce à ces tutoriels : [START MENU in Unity](https://www.youtube.com/watch?v=zc8ac_qUXQY), [PAUSE MENU in Unity](https://www.youtube.com/watch?v=JivuXdrIHK0) (*Credits : Brackeys*). 
