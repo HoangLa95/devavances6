@@ -357,7 +357,7 @@ Nous voulons permettre à **Player** de "mourir" quand il touche **Enemy**.
 
 72. Choisir un asset pour **Bullet** et le rendre Prefab.
 
-73. Choisir une touche pour **Fire** dans **Player Input**.
+73. Choisir une touche pour **Fire** dans **InputActions**.
 
 73. Ajouter un GameObject **Gun** comme enfant de **Player** (avec potentiellement un Sprite si vous voulez; **Player** peut aussi tirer des boules de feu qui apparaissent devant lui).
 
@@ -395,6 +395,20 @@ Destroy(gameObject);
 ```
 
 ## Level Exit
+
+81. Créer un autre niveau (une autre scène) en dupliquant le niveau courant ou un écran de victoire simple.
+
+82. Ajouter un objet **Exit** à votre niveau avec l'asset de votre choix et y attacher un script **LevelExit**.
+
+83. Mettre **Exit** sur la layer **Interactables** et ajouter un Trigger à **Exit**.
+
+84. Dans **LevelExit**, nous allons importer `using UnityEngine.SceneManagement` et dans `void OnTriggerEnter2D(Collider2D other)`, vous pouvez faire `SceneManager.LoadScene(<buildIndex du niveau suivant>)`.
+
+:::{seealso} Build Settings
+Vous pouvez trouver le `buildIndex` de vos scènes dans **File** > **Build Settings**.
+:::
+
+85. Utiliser `Invoke` pour éviter le changement de scène instantané ([tutoriel précédent sur `Invoke`](./Game2_MountainRacer.md/#scenemanager-et-invoke)).
 
 ## Game Session Controller
 
