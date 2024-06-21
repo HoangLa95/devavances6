@@ -456,6 +456,26 @@ else{
 
 ## Coins
 
+92. Utiliser ce que vous avez appris pour ajouter des items dans le niveau (des pièces par exemple) avec une animation (optionnelle), la bonne layer (**Interactables**), et qui peuvent être ramassés (détruits) par **Player**.
+
+## Musique
+
+93. Utiliser ce que vous avez appris dans le [tutoriel précédent](./Game2_MountainRacer.md/#audio) pour ajouter de la musique et des effets sonores à votre jeu.
+
+## Lives et Score
+
+94. Suivre les tutoriels suivant sur les boutons et TextMeshPro : [Creating UI Buttons](https://learn.unity.com/tutorial/creating-ui-buttons) et [QuickStart to TextMeshPro](https://learn.unity.com/tutorial/working-with-textmesh-pro).
+
+95. Créer un canvas simple, comme enfant de **Game Session** pour afficher les points de vie et le score (juste des valeurs arbitraires pour le moment) de **Player** sur l'écran.
+
+96. Dans **EventSystem** (créé automatiquement quand vous avez créer un canvas), cliquer sur **Replace with InputSystemUIInputModule**.
+
+97. Dans **GameSession**, importer `using TMPro` et ajouter la variable `[SerializeField] TextMeshProUGUI livesText` puis récupérer l'objet texte du canvas qui affiche les points de vie.
+
+98. Dans `Start`, afficher les points de vie de **Player** avec `livesText.text = "Lives: " + playerLives.ToString()`, ainsi que dans `TakeLife`.
+
+99. Faire de même pour le score de **Player** (qui augmente quand il ramasse les pièces).
+
 ## Scene Persist
 
 ## Start Menu et Pause Menu
