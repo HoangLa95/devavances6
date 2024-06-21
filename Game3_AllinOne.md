@@ -478,6 +478,18 @@ else{
 
 ## Scene Persist
 
+Nous voulons que le progrès qu'a fait un joueur ne soit pas oublié quand la scène est recommence (par exemple les pièces ramassées et les ennemies tués restent détruits).
+
+100. Créer un objet vide nommé **Scene Persist** avec un script **ScenePersist**.
+
+101. Dans **Scene Persist**, implémenter `Awake` de la même façon que vous avez implémenté `Awake` dans **GameSession**.
+
+102. Créer une fonction `public void ResetScenePersist()` qui détruit l'objet.
+
+103. Dans **GameSession** > `ResetGameSessions`, ajouter `FindObjectOfType<ScenePersist>().ResetScenePersist()` pour détruire **Scene Persist** quand le jeu recommence.
+
+104. Mettre tous les objets de la scène qui avoir le comportement mentionné ci-dessus (pièces, ennemis) comme enfant de **Scene Persist**.
+
 ## Start Menu et Pause Menu
 
 Faire un **Start Menu** et un **Pause Menu** grâce à ces tutoriels : [START MENU in Unity](https://www.youtube.com/watch?v=zc8ac_qUXQY), [PAUSE MENU in Unity](https://www.youtube.com/watch?v=JivuXdrIHK0) (*Credits : Brackeys*). 
