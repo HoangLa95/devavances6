@@ -492,4 +492,10 @@ Nous voulons que le progrès qu'a fait un joueur ne soit pas oublié quand la sc
 
 ## Start Menu et Pause Menu
 
-Faire un **Start Menu** et un **Pause Menu** grâce à ces tutoriels : [START MENU in Unity](https://www.youtube.com/watch?v=zc8ac_qUXQY), [PAUSE MENU in Unity](https://www.youtube.com/watch?v=JivuXdrIHK0) (*Credits : Brackeys*). 
+105. Faire un **Start Menu** et un **Pause Menu** grâce à ces tutoriels : [START MENU in Unity](https://www.youtube.com/watch?v=zc8ac_qUXQY), [PAUSE MENU in Unity](https://www.youtube.com/watch?v=JivuXdrIHK0) (*Credits : Brackeys*).
+
+## Conclusion
+
+106. Ajouter les fonctionnalités que vous voulez avec ce que vous avez appris.
+
+Vous avez fini le jeu !
