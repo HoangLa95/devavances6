@@ -412,6 +412,50 @@ Vous pouvez trouver le `buildIndex` de vos scènes dans **File** > **Build Setti
 
 ## Game Session Controller
 
+Nous voulons le même comportement que Mario quand notre personnage meurt : quand **Player** perd un point de vie, il recommence le niveau courant, quand il perd tous ses points de vie, il recommence le premier niveau.
+
+Pour garder des données en mémoire entre les scènes, nous allons utiliser un objet Game Session Controller.
+
+86. Créer un objet vide **Game Session** et y attacher un script **GameSession**.
+
+87. Dans **GameSession**, ajouter la fonction suivante.
+```{code} csharp
+void Awake()
+    {
+        int numberOfGameSessions = FindObjectsOfType<GameSession>().Length;
+        if(numberOfGameSessions > 1){
+            Destroy(gameObject);
+        }
+        else{
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+```
+- `Awake` se lance avant `Start` , ce qui nous permet de gérér la Game Session avant que les autres objets commencent à exécuter leurs scripts.
+- Nous voulons nous assurer qu'il y a toujours un seul objet `GameSession` pour éviter des conflits.
+- Si un seul objet `GameSession` existe, nous ne voulons pas que cet objet soit détruit lors du `LoadScene`, ce qui permet la persistance des données.
+
+88. Dans **GameSession**, ajouter une fonction `public void ProcessPlayerDeath()` avec le code suivant.
+```{code} csharp
+if(playerLives > 1){
+    TakeLife();
+}
+else{
+    ResetGameSessions();
+}
+```
+- `[SerializeField] int playerLives` va stocker le nombre de points de vie du joueur.
+- `void TakeLife()` va être une fonction qui diminue `playerLives` et recommence le niveau (vous pouvez récupérer l'index du niveau courant avec `int currentSceneIndex = SceneManager.GetActiveScene().buildIndex`).
+- `void ResetGameSessions()` va recommencer le premier niveau et détruire la Game Session courante.
+
+89. Implémenter `TakeLife` et `ResetGameSessions`.
+
+90. Dans **PlayerMovement**, récupérer la **GameSession** (avec `FindObjectOfType<GameSession>()`).
+
+91. Dans **PlayerMovement** > `Die`, appeler `ProcessPlayerDeath`.
+
+## Coins
+
 ## Scene Persist
 
 ## Start Menu et Pause Menu
